@@ -1,0 +1,10 @@
+{
+  "name": "tdd-objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "vitest": "^4.0.16"
+  }
+}
