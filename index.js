@@ -11,7 +11,7 @@
  * getCohort({cohort: 3476, name: "Charlie"}); // 3476
  */
 export function getCohort(student) {
-  // TODO
+  return student.cohort;
 }
 
 /**
@@ -30,7 +30,11 @@ export function getCohort(student) {
  * sortStudents({cohort: 1, name: "Alice"}, {cohort: 2, name: "Alice"}); // {cohort: 1, name: "Alice"}
  */
 export function sortStudents(studentA, studentB) {
-  // TODO
+  if (studentA.name <= studentB.name) {
+    return studentA;
+  } else {
+    return studentB;
+  }
 }
 
 /**
@@ -47,7 +51,10 @@ export function sortStudents(studentA, studentB) {
  * makeFlag("yellow", "triangle"); // { color: "yellow", icon: "triangle" }
  */
 export function makeFlag(color, icon) {
-  // TODO
+  return {
+    color: color,
+    icon: icon,
+  };
 }
 
 /**
@@ -63,7 +70,9 @@ export function makeFlag(color, icon) {
  * increment({value: -5}); // {value: -4}
  */
 export function increment(count) {
-  // TODO
+  return {
+    value: count.value + 1,
+  };
 }
 
 /**
@@ -90,7 +99,9 @@ export function increment(count) {
  *
  */
 export function getTaxicabDistance(from, to) {
-  // TODO
+  const xDistance = Math.abs(from.x - to.x);
+  const yDistance = Math.abs(from.y - to.y);
+  return xDistance + yDistance;
 }
 
 /**
@@ -106,7 +117,9 @@ export function getTaxicabDistance(from, to) {
  * getHerbivores([{name: "Rabbit", isHerbivore: true}]); // [{name: "Rabbit", isHerbivore: true}]
  */
 export function getHerbivores(animals) {
-  // TODO
+  return animals.filter((animal) => {
+    return animal.isHerbivore === true;
+  });
 }
 
 /**
@@ -122,7 +135,9 @@ export function getHerbivores(animals) {
  * getCarnivoreNames([{name: "Wolf", isCarnivore: true}]); // ["Wolf"]
  */
 export function getCarnivoreNames(animals) {
-  // TODO
+  return animals
+    .filter((animal) => animal.isCarnivore)
+    .map((animal) => animal.name);
 }
 
 /**
@@ -143,7 +158,12 @@ export function getCarnivoreNames(animals) {
  * getTotalCost([{name: "Notebook", quantity: 0, price: 5}]); // 0
  */
 export function getTotalCost(cart) {
-  // TODO
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    const item = cart[i];
+    total += item.quantity * item.price;
+  }
+  return total;
 }
 
 /**
@@ -163,7 +183,13 @@ export function getTotalCost(cart) {
  * zip(["x"], ["x"]); // {x: "x"}
  */
 export function zip(keys, values) {
-  // TODO
+  const result = {};
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const value = values[i];
+    result[key] = value;
+  }
+  return result;
 }
 
 /**
@@ -179,5 +205,14 @@ export function zip(keys, values) {
  * countCharacters("aAa"); // {a: 2, A: 1}
  */
 export function countCharacters(word) {
-  // TODO
+  const counts = {};
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i];
+    if (counts[char]) {
+      counts[char] += 1;
+    } else {
+      counts[char] = 1;
+    }
+  }
+  return counts;
 }
